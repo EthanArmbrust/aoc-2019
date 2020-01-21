@@ -29,15 +29,21 @@ int main(){
     }
 
     int max_ass = 0;
+    int x, y;
     for(int j = 0; j < input.size(); j++){
         for(int i = 0; i < input[j].length(); i++){
             if(input[j][i] == '#'){
+		int temp = max_ass;
                 max_ass = max(max_ass, compute_asteroids(input, i, j));
+		if(max_ass != temp){
+		    x = i; y = j;
+		}
             }
         }
     }
 
     cout << max_ass << endl;
+    cout << x << "," << y << endl;
 
     return 0;
 }
